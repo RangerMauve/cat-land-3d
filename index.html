@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<title>Cat Land 3D</title>
+<style>
+  #credits {display: none}
+  #game {width: 100vw; height: 100vh;}
+  html, body {
+		paddig: 0;
+		margin: 0;
+  }
+</style>
+
+<section id="credits">
+	<p>
+		"The River" (https://skfb.ly/6CvwR) by Kagelok is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+	</p>
+	<p>
+		"Cat" (https://poly.google.com/view/6dM1J6f6pm9) by "Poly by Google" is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+	</p>
+</section>
+
+<three-game autorender id="game">
+  <pretty-scene background-color="#32e5be">
+		<three-template tag="model-cat">
+			<three-gltf-asset
+				url="./cat/Mesh_Cat.gltf"
+				scale="0.02"
+			></three-gltf-asset>
+		</three-template>
+
+
+  	<!-- <three-fog near="0" far="32" color="#111"></three-fog> -->
+  	<three-ambient-light intensity="0.5"></three-ambient-light>
+  	<three-directional-light position="10, 10, 40" intensity="0.4"></three-directional-light>
+
+  	<three-gltf-asset id="scene" url="./river/scene.gltf"></three-gltf-asset>
+
+		<!-- Lil kitties -->
+  	<model-cat
+  		position.y="0.5"
+		></model-cat>
+		<model-cat
+		  rotation.y="-90deg"
+			position="-2, 1.2, -2"
+		></model-cat>
+		<model-cat
+		  rotation.x="-10deg"
+		  rotation.y="45deg"
+			position="4, 1.6, 4"
+		></model-cat>
+
+		<!-- Big boys -->
+  	<model-cat
+  		position.y="0.5"
+  		position.z="-40"
+  		scale="0.5"
+		></model-cat>
+		<model-cat
+      position.y="0.5"
+      position.x="-40"
+      scale="0.5"
+      rotation.y="90deg"
+    ></model-cat>
+		<model-cat
+      position.y="0.5"
+      position.x="40"
+      scale="0.5"
+      rotation.y="-90deg"
+    ></model-cat>
+
+    <!-- THE BIGGEST -->
+    <model-cat
+      position.y="0.5"
+      position.z="200"
+      scale="4"
+      rotation.y="180deg"
+    ></model-cat>
+
+  	<three-orbit-controls></three-orbit-controls>
+  </pretty-scene>
+</three-game>
+
+<script type="module">
+  import "https://cdn.skypack.dev/three-elements"
+  import "./pretty-scene.js"
+</script>
+
